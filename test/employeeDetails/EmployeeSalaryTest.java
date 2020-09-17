@@ -2,13 +2,23 @@ package employeeDetails;
 
 import model.Employee;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
 
+@RunWith(MockitoJUnitRunner.class)
 public class EmployeeSalaryTest {
 
-    Employee employee=new Employee();
-    EmployeeSalary salary=new EmployeeSalary();
+
+
+    @InjectMocks
+    EmployeeSalary salary;
+
+    @InjectMocks
+    Employee employee;
 
     @Test
     public void testGetAnnualSalary() {
