@@ -1,16 +1,27 @@
 package employeeDetails;
 
 import model.Employee;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
-
+import static org.mockito.Mockito.mock;
+@RunWith(MockitoJUnitRunner.class)  //without this inject mock was throwing null pointer exception
 public class EmployeeExperienceTest {
 
-    Employee employee=new Employee();
-    //mock this class
-    EmployeeExperience experience = new EmployeeExperience();
-    //mock this class
+    //Mock used to create for a given class/interface
+    //with Mock the test case was ignoring?
+    @InjectMocks
+    Employee employee;
+
+    @InjectMocks
+    EmployeeExperience experience;
 
     @Test
     public void testGetExperienceInYears() {
@@ -28,7 +39,7 @@ public class EmployeeExperienceTest {
         employee.setDateOfJoining("23-07-2020");
         //Employee firstEmployee = new Employee("Rashmi","Raj", dateOfJoining,()->currentDate);
         long experienceDays= experience.getExperienceInDays(employee);
-        assertEquals(50,experienceDays,0.0);
+        assertEquals(55,experienceDays,0.0);
     }
 
 
